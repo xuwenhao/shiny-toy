@@ -8,10 +8,11 @@ shinyUI(
       sliderInput('slength', 'Sepal Length', value = 4, min = 4, max = 8, step = 0.05)      
     ),
     mainPanel(
-      p("You could move the slider to adjust petal and sepal width/length of the iris"),
+      p("The plot in the right display all the training data used to create the iris prediction model. "),
+      p("You could move the slider to adjust petal and sepal width/length of the iris. "),
       p("The application will predict the species for you and display an X in the chart to show the prediction. "),
-      p("The Prediction is : "),
-      textOutput('species'),
+      h4("The Prediction is : "),
+      h4(textOutput('species')),
       plotOutput('newIrisPrediction')      
     )
   )

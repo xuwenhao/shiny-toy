@@ -15,7 +15,7 @@ shinyServer(
     })
     output$newIrisPrediction <- renderPlot({
       p <- qplot(Petal.Width, Petal.Length, col=Species, data=iris) + 
-        geom_point(aes(x=Petal.Width, y=Petal.Length, col=Species), size=5, shape=4, data=x())
+        geom_point(aes(x=Petal.Width, y=Petal.Length, col=Species), size=8, shape=4, data=x())
       print(p)
     })
     output$species <- renderText({
