@@ -1,0 +1,54 @@
+---
+title       : Shiny App
+subtitle    : Predict Iris Species
+author      : Xu Wenhao
+job         : Data Science Course Student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : zenburn      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+
+## iris Data classified well through simple variables
+
+
+```r
+data(iris)
+qplot(Petal.Length, Petal.Width, col = Species, data = iris) + aes(x = Petal.Width, 
+    y = Petal.Length, col = Species)
+```
+
+![plot of chunk unnamed-chunk-1](assets/fig/unnamed-chunk-1.png) 
+
+
+---
+
+## Use a decision tree to classify the data
+
+
+```r
+library(caret)
+library(rattle)
+modelFit <- train(Species ~ ., method = "rpart", data = iris)
+fancyRpartPlot(modelFit$finalModel)
+```
+
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 
+
+---
+
+## Shiny Web App
+
+Use Shiny to create web app to do prediction realtime
+
+![app](fig/app.png "Iris Species predictor")
+
+---
+
+## Shiny Web App
+
+* Move slider in left will move X mark in left
+* The predicted species is marked by color and displayed in bold text.
+
+![annotate](fig/annotate.png "annotated image")
