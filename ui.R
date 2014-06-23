@@ -1,3 +1,6 @@
+library(shiny)
+library(ggplot2)
+
 shinyUI(
   pageWithSidebar(
     headerPanel("Predict Iris Species Through Petal Height and Width"),

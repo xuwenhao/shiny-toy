@@ -1,5 +1,9 @@
-library(caret)
+library(shiny)
+library(e1071)
 library(ggplot2)
+library(lattice)
+library(rpart)
+library(caret)
 data(iris)
 
 modelFit <- train(Species ~ ., method='rpart', data=iris)
